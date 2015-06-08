@@ -1,19 +1,16 @@
 Rails.application.routes.draw do
-  get 'trips/index'
-
-  get 'trips/new'
-
-  get 'trips/edit'
-
-  get 'trips/show'
 
   get 'welcome/index'
 
-  get 'welcome/index'
+  devise_for :users 
 
-  get 'welcome/index'
+  resources :users do 
+    resources :trips
+  end
 
-  devise_for :users
+  resources :trips do
+    resources :expenses
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
