@@ -4,7 +4,7 @@ class CreateExpenses < ActiveRecord::Migration
       t.date :date
       t.string :payer
       t.text :description
-      t.float :amount
+      t.decimal :amount
       #t.references :attendee, index: true, foreign_key: true
 
       t.timestamps null: false

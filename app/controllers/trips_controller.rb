@@ -7,6 +7,7 @@ class TripsController < ApplicationController
 	def new
 		@user = current_user
 		@trip = @user.trips.build
+		@attendee = Attendee.new
 	end
 
 	def create

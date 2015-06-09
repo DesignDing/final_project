@@ -12,10 +12,14 @@ class AttendeesController < ApplicationController
 	end 
 
 	def destroy
-		@attendee = Attendee.find(params[:id]
+		@attendee = Attendee.find(params[:id])
 		@attendee.destroy
 
 
 		redirect_to trip_path(@trip)
 	end 
+
+	def expense_params
+		params.require(:attendee).permit(:name, :trip_id)
+	end
 end

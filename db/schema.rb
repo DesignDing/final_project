@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150609093221) do
     t.date     "date"
     t.string   "payer"
     t.text     "description"
-    t.float    "amount"
+    t.decimal  "amount"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "attendee_id"
