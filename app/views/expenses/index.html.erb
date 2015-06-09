@@ -1,0 +1,21 @@
+<h1>Expenses</h1>
+<table id="expense_lists">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Payer</th>
+      <th>Description</th>
+       <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.date %></td>
+        <td><%= expense.payer %></td>
+        <td><%= expense.description %></td>
+        <td><%= expense.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

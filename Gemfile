@@ -4,6 +4,7 @@ gem 'rails_12factor', group: :production
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :attendees
   end
 
-  resources :attendees do
+  resources :trips do
     resources :expenses
   end
 

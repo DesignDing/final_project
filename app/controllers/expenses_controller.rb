@@ -1,44 +1,39 @@
 class ExpensesController < ApplicationController
 	def create
 		@trip = Trip.find(params[:trip_id])
-		@attendee = @trip.attendees.create(attendee_params)
-		redirect_to trip_path(@trip)
+		@expense = @trip.expenses.create(expense_params)
+		redirect_to trip_expense_path(@trip,@expense)
 
-		# if @attendee.save 
-		# redirect_to new_trip_path(@trip)
-		# else
-		# render 'new'
-		# end
 	end
 
-	def edit
-  		@trip = Trip.find(params[:id])
-	end
+	# def edit
+ #  		@expense = Expense.find(params[:id])
 
-	def update
-		@trip = Trip.find(params[:id])
+	# end
+
+	# def update
+	# 	@expense = Trip.find(params[:id])
 		
-		if @trip.update(trip_params)
-		redirect_to @trip
-		else
-		render 'edit'
-		end 
-	end 
+	# 	if @trip.update(trip_params)
+	# 	redirect_to @trip
+	# 	else
+	# 	render 'edit'
+	# 	end 
+	# end 
 
 	def destroy
 		@trip = Trip.find(params[:trip_id])
-		@attendee = @trip.attendees.find(params[:id])
+		@expense = @trip.expenses.find(params[:id])
 
-		#@attendee = Attendee.find(params[:id])
-		@attendee.destroy
+		#@expense = expense.find(params[:id])
+		@expense.destroy
 		#redirect_to root_path
 		redirect_to trip_path(@trip)
 
 	end 
 
-	def attendee_params
-		params.require(:expense).permit(:date, :payer, :description, :amount)
+	def expense_params
+		params.require(:expense).permit(:date, :payer, :description, :amoun, :trip_id)
 	end
 end
 
-end
