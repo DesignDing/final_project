@@ -1,14 +1,17 @@
 class AttendeesController < ApplicationController
+
+	
+
 	def create
-		
 		@trip = Trip.find(params[:trip_id])
 		@attendee = @trip.attendees.create(attendee_params)
-
-		if @attendee.save 
 		redirect_to trip_path(@trip)
-		else
-		render 'new'
-		end
+
+		# if @attendee.save 
+		# redirect_to new_trip_path(@trip)
+		# else
+		# render 'new'
+		# end
 	end 
 
 	def destroy
@@ -19,7 +22,7 @@ class AttendeesController < ApplicationController
 		redirect_to trip_path(@trip)
 	end 
 
-	def expense_params
+	def attendee_params
 		params.require(:attendee).permit(:name, :trip_id)
 	end
 end
