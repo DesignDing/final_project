@@ -5,7 +5,7 @@ class CreateExpenses < ActiveRecord::Migration
       t.string :payer
       t.text :description
       t.float :amount
-      t.references :trip, index: true, foreign_key: true
+      #t.references :attendee, index: true, foreign_key: true
 
       t.timestamps null: false
     end

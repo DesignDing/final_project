@@ -11,26 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150608141235) do
-=======
-ActiveRecord::Schema.define(version: 20150608140719) do
->>>>>>> 1ca074146c3bed724c62787930b768a7f17b0f33
+ActiveRecord::Schema.define(version: 20150609093221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendees", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "attendees", ["trip_id"], name: "index_attendees_on_trip_id", using: :btree
 
   create_table "expenses", force: :cascade do |t|
     t.date     "date"
     t.string   "payer"
     t.text     "description"
     t.float    "amount"
-    t.integer  "trip_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "attendee_id"
   end
 
-  add_index "expenses", ["trip_id"], name: "index_expenses_on_trip_id", using: :btree
+  add_index "expenses", ["attendee_id"], name: "index_expenses_on_attendee_id", using: :btree
 
   create_table "trips", force: :cascade do |t|
     t.string   "name"
@@ -60,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150608140719) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "expenses", "trips"
+  add_foreign_key "attendees", "trips"
+  add_foreign_key "expenses", "attendees"
   add_foreign_key "trips", "users"
 end

@@ -1,4 +1,7 @@
 <h1>Welcome!</h1>
+<p><%= link_to "Add New Trip", new_user_trip_path(@user)%></p>
 
-
-<p><%= link_to "Sign In", "current_user_trip_path" %></p>
+<p>Here are all your recent trips:</p>
+<%@trips.each do |trip|%>
+	<p><%= link_to trip.name, trip_path(trip) %></p> 
+<%end%>
