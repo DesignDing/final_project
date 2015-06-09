@@ -1,7 +1,5 @@
 class AttendeesController < ApplicationController
 
-	
-
 	def create
 		@trip = Trip.find(params[:trip_id])
 		@attendee = @trip.attendees.create(attendee_params)
@@ -22,7 +20,6 @@ class AttendeesController < ApplicationController
 		@attendee.destroy
 		#redirect_to root_path
 		redirect_to trip_path(@trip)
-
 	end 
 
 	def attendee_params

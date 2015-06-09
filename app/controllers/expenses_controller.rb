@@ -1,56 +1,44 @@
 class ExpensesController < ApplicationController
-	def index
-		@trip = Trip.find(params[:id])
-		@expenses = @trip.expenses.order(:date) 
-	end 
+	def create
+		@trip = Trip.find(params[:trip_id])
+		@attendee = @trip.attendees.create(attendee_params)
+		redirect_to trip_path(@trip)
 
-	def new
-		@trip = Trip.find(params[:id])
-		@expense = @trip.expenses.build
+		# if @attendee.save 
+		# redirect_to new_trip_path(@trip)
+		# else
+		# render 'new'
+		# end
 	end
 
-	def create
-		
-		@trip = Trip.find(params[:id])
-		@expense = @trip.expenses.create(expense_params)
-
-		if @expense.save 
-		redirect_to @expense
-		else
-		render 'new'
-		end
-	end 
-
-	def show
-		@expense = Expense.find(params[:id])
-
-	end 
-
 	def edit
-  		@expense = Expense.find(params[:id])
+  		@trip = Trip.find(params[:id])
 	end
 
 	def update
-		@expense = Expense.find(params[:id])
+		@trip = Trip.find(params[:id])
 		
-		if @expense.update(expense_params)
-		redirect_to @expense
+		if @trip.update(trip_params)
+		redirect_to @trip
 		else
 		render 'edit'
 		end 
 	end 
 
 	def destroy
-		@expense = Expense.find(params[:id])
-		@expense.destroy
+		@trip = Trip.find(params[:trip_id])
+		@attendee = @trip.attendees.find(params[:id])
 
-		redirect_to trip_expenses_path(@trip)
+		#@attendee = Attendee.find(params[:id])
+		@attendee.destroy
+		#redirect_to root_path
+		redirect_to trip_path(@trip)
+
 	end 
 
-	private
-
-    def expense_params
-		params.require(:expense).permit(:date, :payer, :description, :amount, :trip_id)
+	def attendee_params
+		params.require(:expense).permit(:date, :payer, :description, :amount)
 	end
+end
 
 end
