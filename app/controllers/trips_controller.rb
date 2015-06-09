@@ -44,6 +44,7 @@ class TripsController < ApplicationController
 		@trip = Trip.find(params[:id])
 		@trip.destroy
 
+
 		redirect_to welcome_index_path
 	end 
 
