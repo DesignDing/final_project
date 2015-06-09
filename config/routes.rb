@@ -11,14 +11,19 @@ Rails.application.routes.draw do
     root :to => 'devise/registrations#new', as: :unauthenticated_root
   end
   end
-  
+
   resources :users do 
     resources :trips
   end
 
   resources :trips do
+    resources :attendees
+  end
+
+  resources :attendees do
     resources :expenses
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
