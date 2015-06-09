@@ -1,0 +1,8 @@
+<%=simple_form_for [@trip, @expense] do |f|%>
+	<%= f.input :date, label: 'Date:'%>
+	<%= f.input :payer, label: 'Who paid:'%>
+	<%= f.input :description, label: 'Expense detail:'%>
+	<%= f.input :amount, label: 'Amount paid:'%>
+	<%= f.submit %> 
+<% end %>
+

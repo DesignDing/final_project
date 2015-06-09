@@ -1,10 +1,36 @@
 class ExpensesController < ApplicationController
+	def index
+		@expenses = @trip.expenses.order(:date) 
+	end
+	def new
+		@trip = Trip.find(params[:trip_id])
+		@expense = @trip.expenses.build
+	end
+
+	def show
+		# @trip = Trip.find(params[:trip_id])
+		@expense = Expense.find(params[:id])
+
+	end 
+
+	# def create
+	# 	@trip = Trip.find(params[:trip_id])
+	# 	@expense = @trip.expenses.create(expense_params)
+	# 	redirect_to trip_expense_path(@trip,@expense)
+
+	# end
+
 	def create
+		
 		@trip = Trip.find(params[:trip_id])
 		@expense = @trip.expenses.create(expense_params)
-		redirect_to trip_expense_path(@trip,@expense)
 
-	end
+		if @expense.save 
+		redirect_to trip_expense_path(@trip,@expense)
+		else
+		render 'new'
+		end
+	end 
 
 	# def edit
  #  		@expense = Expense.find(params[:id])

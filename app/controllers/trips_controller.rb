@@ -24,6 +24,7 @@ class TripsController < ApplicationController
 	def show
 		@trip = Trip.find(params[:id])
 		@attendee = Attendee.new
+
 	end 
 
 	def edit
