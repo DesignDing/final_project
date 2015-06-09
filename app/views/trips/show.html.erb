@@ -7,13 +7,13 @@
 
 <p> Who's coming? </p>
 
-	<% @trip.attendees.each do |a| %>
- 		<%= a.name %>
- 		<% end %>
+	<%= render @trip.attendees %>
+ 	
 
 <p> Add Another Attendee </p>
 		
-	<%= render 'attendees/attendee'%>
+	<%= render 'attendees/form'%>
+
 
 <br><br><br><br>
 

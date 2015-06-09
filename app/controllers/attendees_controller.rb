@@ -15,10 +15,14 @@ class AttendeesController < ApplicationController
 	end 
 
 	def destroy
-		# @trip = Trip.find(params[:trip_id])
-		# @trip.attendees.destroy
-		@attendee = Attendee.find(params[:id])
+		@trip = Trip.find(params[:trip_id])
+		@attendee = @trip.attendees.find(params[:id])
+
+		#@attendee = Attendee.find(params[:id])
 		@attendee.destroy
+		#redirect_to root_path
+		redirect_to trip_path(@trip)
+
 	end 
 
 	def attendee_params

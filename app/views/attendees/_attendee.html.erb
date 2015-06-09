@@ -1,7 +1,15 @@
+	<%# @trip.attendees.each do |a| %>
+ 		<%#= a.name %>
+ 		<%# end %>
+ 		<%#= link_to "remove attendee", [attendee.trip, attendee], 
+ 			method: :delete, 
+ 			data: {confirm:  "Are you sure?"} %>
 
-<%=simple_form_for [@trip, @attendee] do |f|%>
-	<%= f.input :name, label: 'Name:'%>
 
-<p> <%= f.submit %> </p>
-	
-<% end %>
+ <p>
+ 		<%= attendee.name %>
+ 		<%= link_to "remove attendee", [attendee.trip, attendee], 
+ 			method: :delete, 
+ 			data: {confirm:  "Are you sure?"} %>
+
+ </p>
