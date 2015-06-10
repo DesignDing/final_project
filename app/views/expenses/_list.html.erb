@@ -21,3 +21,17 @@
 </table>
 
 <%= link_to 'Add new expense', new_trip_expense_path(@trip) %>
+
+
+<h2>Summary</h2>
+<p>Total expense: <%= @trip.expenses.sum(:amount) %></p>
+</br>
+    <% @expenses.each do |expense| %>
+            <td><%= expense.attendee.name %></td> 
+            <td><%= expense.amount - (@trip.expenses.sum(:amount)/@trip.number) %></td>
+            </br>
+    <% end %>
+
+
+
+  

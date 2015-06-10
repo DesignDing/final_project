@@ -5,7 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Expense.delete_all
 
-Expense.create! date: "1995/06/10", payer: "Han", description: "lunch", amount: 500.5
 

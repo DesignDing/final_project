@@ -47,7 +47,7 @@ class TripsController < ApplicationController
 		@trip.destroy
 
 
-		redirect_to welcome_index_path
+		redirect_to trips_index
 	end 
 
 	private

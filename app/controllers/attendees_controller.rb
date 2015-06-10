@@ -1,8 +1,11 @@
 class AttendeesController < ApplicationController
 
+
+
 	def create
 		@trip = Trip.find(params[:trip_id])
 		@attendee = @trip.attendees.create(attendee_params)
+		@attendee.save
 		redirect_to trip_path(@trip)
 
 		# if @attendee.save 
