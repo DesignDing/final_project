@@ -1,24 +1,15 @@
+	<div class=form>
 	<%=simple_form_for @trip do |f|%>
+		<h3>Where are you guys going?</h3>
+			<%= f.input :name, label: 'location' %>
+		<h3>How many people?</h3>
+			<%= f.input :number, label: 'number' %>
+			<br>
+			<br>
+			<%= f.submit %>
+	<% end %>
+	</div>
 
-	<h2>Where are you guys going?</h2>
-		<p><%= f.input :name, label: "Location" %></p>
-		<p><%= f.input :number, label: "How many people?" %></p>
-
-	<!-- <h2> Attendees </h2> -->
-
-		<%#= render @trip.attendees %>
-
-		<%#=simple_form_for @attendee do |a|%>
-		<%#= a.input :name, label: 'Name:'%>
-		<%#= a.submit %>
-
-			<%#= render 'attendees/attendee'%>
-
-			<br><br>
-
-		<%= f.submit %>
-
-<% end %>
 	
 
 

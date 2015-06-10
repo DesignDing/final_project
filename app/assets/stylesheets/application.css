@@ -15,3 +15,7 @@
  *= require dataTables/jquery.dataTables
  */
 
+h1{
+	text-align: center;
+}
+

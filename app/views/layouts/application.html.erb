@@ -23,6 +23,8 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
+<%= render 'layouts/nav'%>
+
 <%= yield %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
