@@ -3,11 +3,12 @@ class ExpensesController < ApplicationController
 		@trip = Trip.find(params[:trip_id])
 		@expenses = @trip.expenses.order(:date) 
 
+
 	end
 
 	def new
 		@trip = Trip.find(params[:trip_id])
-		@expense = @trip.expenses.build
+		@expense = Expense.new
 	end
 
 
@@ -20,13 +21,14 @@ class ExpensesController < ApplicationController
 
 	def create
 		
-		@trip = Trip.find(params[:trip_id])
-		@expense = @trip.expenses.create(expense_params)
+		#@trip = Trip.find(params[:trip_id])
+		@expense = Expense.new(expense_params)
+		#@expense = @trip.expenses.create(expense_params)
 
 		if @expense.save 
-		redirect_to trip_expenses_path(@trip)
+			redirect_to trip_expenses_path(@expense.trip)
 		else
-		render 'new'
+			render 'new'
 		end
 	end 
 
@@ -56,13 +58,22 @@ class ExpensesController < ApplicationController
 	# end 
 
 	def destroy
-		@trip = Trip.find(params[:trip_id])
-		@expense = @trip.expenses.find(params[:id])
+		expense = Expense.find(params[:id])
 
-		#@expense = expense.find(params[:id])
-		@expense.destroy
-		#redirect_to root_path
-		redirect_to trip_path(@trip)
+		trip = expense.trip
+
+		expense.destroy
+
+		redirect_to trip_path(trip)
+
+		# Expense.delete(params[:id])
+		# @trip = Trip.find(params[:trip_id])
+		# @expense = @trip.expenses.find(params[:id])
+
+		# #@expense = expense.find(params[:id])
+		# @expense.destroy
+		# #redirect_to root_path
+		# redirect_to trip_path(@trip)
 
 	end 
 

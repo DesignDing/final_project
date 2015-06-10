@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'welcome/index'
 
   devise_for :users 
   devise_scope :user do
     authenticated :user do
-      root :to => 'welcome#index'
+      root :to => 'trips#index'
     end
     unauthenticated :user do
-      root :to => 'devise/registrations#new', as: :unauthenticated_root
+      root 'welcome#index', as: :unauthenticated_root
     end
   end
 
@@ -20,7 +19,7 @@ Rails.application.routes.draw do
     resources :attendees
   end
 
-  resources :trips do
+  resources :trips, shallow: true do
     resources :expenses
   end
 
