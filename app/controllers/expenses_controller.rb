@@ -1,6 +1,8 @@
 class ExpensesController < ApplicationController
 	def index
+		@expenses = Expense.all
 		@expenses = @trip.expenses.order(:date) 
+
 	end
 	def new
 		@trip = Trip.find(params[:trip_id])
@@ -9,7 +11,10 @@ class ExpensesController < ApplicationController
 
 	def show
 		# @trip = Trip.find(params[:trip_id])
-		@expense = Expense.find(params[:id])
+
+		# @expense = Expense.find(params[:id])
+
+		@expense = Expense.all
 
 	end 
 
