@@ -1,5 +1,5 @@
 <%=simple_form_for [@trip, @attendee] do |f|%>
-	<%= f.input :name, label: 'Name:'%>
+	<%= f.input :name, label: false, placeholder: 'Name', autofocus:true %>
 	<%= f.submit %> 
 <% end %>
 

@@ -7,9 +7,10 @@
 
 
  <p>
- 		<%= attendee.name %>
+ 		<strong><%= attendee.name %></strong>
  		<%= link_to "remove attendee", [attendee.trip, attendee], 
  			method: :delete, 
- 			data: {confirm:  "Are you sure?"} %>
+ 			data: {confirm:  "Are you sure?"},
+ 			:class => 'btn btn-danger btn-xs' %>
 
  </p>

@@ -1,15 +1,12 @@
-<!-- <h1>Here are your most recent trips!</h1>
-
-<%# @trips.each do |trip| %> 
-
-<%#= link_to 'Add New Trip', new_user_trip_path %> -->
-
-<!-- # this is probably useless -->
-
+<div class = trip-index>
 <h1>Welcome!</h1>
-<p><%= link_to "Add New Trip", new_user_trip_path(@user)%></p>
+<h3><%= link_to "Add New Trip", new_user_trip_path(@user), :class => 'btn btn-success btn-lg'%></h3>
 
-<p>Here are all your recent trips:</p>
+<h4>Here are all your recent trips:</h4>
+
+
 <%@trips.each do |trip|%>
 	<p><%= link_to trip.name, trip_path(trip) %></p> 
 <%end%>
+
+</div>

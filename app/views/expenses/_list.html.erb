@@ -25,12 +25,13 @@
 
 <h2>Summary</h2>
 <p>Total expense: <%= @trip.expenses.sum(:amount) %></p>
-</br>
-    <% @expenses.each do |expense| %>
-            <td><%= expense.attendee.name %></td> 
-            <td><%= expense.amount - (@trip.expenses.sum(:amount)/@trip.number) %></td>
-            </br>
-    <% end %>
+
+<div>
+  <% @trip.attendees.each do |attendee| %>
+          <p><%= attendee.name %>: <%= attendee.expenses.sum(:amount) - (@trip.expenses.sum(:amount)/@trip.number) %></p>
+        
+  <%end%>
+</div>
 
 
 

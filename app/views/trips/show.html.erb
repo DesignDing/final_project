@@ -1,32 +1,25 @@
-<h1><strong><%= @trip.name %></strong></h1>
-  
-<%#= link_to "Add Expense", new_trip_expense_path(@trip) %>
-<%#= render @trip.expenses %>
+<div class = trip-show>
+	<h1><strong><%= @trip.name %></strong></h1>
+	  
+	<p> Number of Attendees: <%= @trip.number %></p>
 
-<p> Number of Attendees: <%= @trip.number %></p>
+	<p> Who's coming? </p>
 
-<p> Who's coming? </p>
-
-	<%= render @trip.attendees %>
- 	
-
-<p> Add Another Attendee </p>
+		<%= render @trip.attendees %>
+	 	
+	<p> Add new attendee: <%= render 'attendees/form' %></p>
+			
 		
-	<%= render 'attendees/form'%>
+	<%= render 'expenses/list' %>
+	<br>
+	<br>
+	<%= link_to 'Edit', edit_trip_path(@trip), :class => 'btn btn-primary'%>
+	<%= link_to 'All trips', trips_path, :class => 'btn btn-info' %>
+	<%= link_to 'Delete this trip', trip_path(@trip),
+	              method: :delete,
+	              data: { confirm: 'Are you sure?' },
+	              :class => 'btn btn-danger' %>
+	
 
-
-
-<%= render 'expenses/list' %>
-
-
-<br><br><br><br>
-
-<%= link_to 'Edit', edit_trip_path(@trip) %> |
-<%= link_to 'Delete', trip_path(@trip),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-
-
-<p><%= link_to 'All trips', trips_path %></p>
-
-<p><%= link_to 'Start', new_trip_expense_path(@trip) %></p>
+	<%#= link_to 'Start', new_trip_expense_path(@trip) %>
+</div>
