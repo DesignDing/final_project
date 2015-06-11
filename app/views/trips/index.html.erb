@@ -1,12 +1,10 @@
 <div class = trip-index>
-<h1>Welcome!</h1>
-<h3><%= link_to "Add New Trip", new_user_trip_path(@user), :class => 'btn btn-success btn-lg'%></h3>
+	<h1>Welcome!</h1>
+	<h3><%= link_to "Add New Trip", new_user_trip_path(@user), :class => 'btn btn-success btn-lg'%></h3>
 
-<h4>Here are all your recent trips:</h4>
-
-
-<%@trips.each do |trip|%>
-	<p><%= link_to trip.name, trip_path(trip) %></p> 
-<%end%>
+	<h4>Here are your recent trips:</h4>
+	<%@trips.each do |trip|%>
+		<p><%= link_to trip.name, trip_path(trip) %></p> 
+	<%end%>
 
 </div>

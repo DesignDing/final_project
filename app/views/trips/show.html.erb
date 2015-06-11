@@ -2,6 +2,9 @@
 .buttons{
 	margin-left: 70% ;
 }
+.progress{
+	color: black;
+}
 </style>
 
 <div class = trip-show>
@@ -16,6 +19,12 @@
 
 	<p><%= render 'attendees/form' %></p>
 	<%end%>
+
+<!-- 	<div class= "progress" >
+	  <div class="progress-bar progress-bar-default" style="width: 100%"></div>
+	</div> -->
+	<h1>__________________________________________________________________</h1>
+
 	<%= render 'expenses/list' %>
 	<%#= link_to 'Add new expense', new_trip_expense_path(@trip), :class => 'btn btn-primary' %>
  

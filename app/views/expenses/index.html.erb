@@ -1,17 +1,26 @@
+<style>
+.back{
+	margin-left: 70%
+}
+
+</style>
+
 <div class = expense-index>
 <%= render 'list' %>
 </br>
 
 	<div class = "col-sm-12">
-	</br>
-	</br>
-	</br>
-	</br>
-	<%= link_to 'Back', user_trip_path(current_user,@trip), :class => 'btn btn-info' %>
-	</br>
-	</br>
-	</br>
-	</br>
+		<div class = "back">
+			</br>
+			</br>
+			</br>
+			</br>
+			<%= link_to 'Back', user_trip_path(current_user,@trip), :class => 'btn btn-info' %>
+			</br>
+			</br>
+			</br>
+			</br>
+		</div>	
 	</div>
 
 </div>

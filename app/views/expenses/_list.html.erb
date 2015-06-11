@@ -46,11 +46,13 @@
   <div class = "col-sm-3">
     <div class = "summary">
     <h1>Summary</h1>
+    
     <ul>
       <% @trip.attendees.each do |attendee| %>
               <li>
               <%if attendee.expenses.sum(:amount) - (@trip.expenses.sum(:amount)/@trip.number) < 0  %>
-              <p><%= attendee.name %> should pay: -$<%= (@trip.expenses.sum(:amount)/@trip.number - attendee.expenses.sum(:amount)) %></p>
+              
+              <p><%= attendee.name %>should pay: -$<%= (@trip.expenses.sum(:amount)/@trip.number - attendee.expenses.sum(:amount)) %></p>
               <%else%>
                <p><%= attendee.name %> should receive: $<%= attendee.expenses.sum(:amount) - (@trip.expenses.sum(:amount)/@trip.number) %></p>  
                <%end%> 
