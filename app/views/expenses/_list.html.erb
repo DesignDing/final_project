@@ -15,6 +15,10 @@
         <td><%= expense.attendee.name if expense.attendee %></td>
         <td><%= expense.description %></td>
         <td><%= expense.amount %></td>
+        <td><%= link_to "remove expense", expense, 
+                method: :delete, 
+                data: {confirm:  "Are you sure?"},
+                :class => 'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,11 +28,15 @@
 
 
 <h2>Summary</h2>
-<p>Total expense: <%= @trip.expenses.sum(:amount) %></p>
+<h5>Total expense: <%= @trip.expenses.sum(:amount) %></h5>
 
 <div>
   <% @trip.attendees.each do |attendee| %>
-          <p><%= attendee.name %>: <%= attendee.expenses.sum(:amount) - (@trip.expenses.sum(:amount)/@trip.number) %></p>
+          <%if attendee.expenses.sum(:amount) - (@trip.expenses.sum(:amount)/@trip.number) < 0  %>
+          <p><%= attendee.name %> should pay: <%= attendee.expenses.sum(:amount) - (@trip.expenses.sum(:amount)/@trip.number) %></p>
+          <%else%>
+           <p><%= attendee.name %> should receive: <%= attendee.expenses.sum(:amount) - (@trip.expenses.sum(:amount)/@trip.number) %></p>  
+           <%end%>       
         
   <%end%>
 </div>

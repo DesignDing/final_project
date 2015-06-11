@@ -3,11 +3,13 @@
 	  
 	<p> Number of Attendees: <%= @trip.number %></p>
 
-	<p> Who's coming? </p>
+	<strong><p> Who's coming: </p></strong>
 
 		<%= render @trip.attendees %>
 	 	
-	<p> Add new attendee: <%= render 'attendees/form' %></p>
+	<%if @trip.attendees.size < @trip.number %> 	
+	<p><%= render 'attendees/form' %></p>
+	<%end%>
 			
 		
 	<%= render 'expenses/list' %>
@@ -20,6 +22,4 @@
 	              data: { confirm: 'Are you sure?' },
 	              :class => 'btn btn-danger' %>
 	
-
-	<%#= link_to 'Start', new_trip_expense_path(@trip) %>
 </div>
