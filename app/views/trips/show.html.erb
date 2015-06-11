@@ -1,25 +1,42 @@
+<style>
+.buttons{
+	margin-left: 70% ;
+}
+</style>
+
 <div class = trip-show>
 	<h1><strong><%= @trip.name %></strong></h1>
 	  
 	<p> Number of Attendees: <%= @trip.number %></p>
 
 	<strong><p> Who's coming: </p></strong>
-
-		<%= render @trip.attendees %>
+	<%= render @trip.attendees %>
 	 	
-	<%if @trip.attendees.size < @trip.number %> 	
+	<%if @trip.attendees.size < @trip.number %> 
+
 	<p><%= render 'attendees/form' %></p>
 	<%end%>
-			
-		
 	<%= render 'expenses/list' %>
-	<br>
-	<br>
-	<%= link_to 'Edit', edit_trip_path(@trip), :class => 'btn btn-primary'%>
-	<%= link_to 'All trips', trips_path, :class => 'btn btn-info' %>
-	<%= link_to 'Delete this trip', trip_path(@trip),
-	              method: :delete,
-	              data: { confirm: 'Are you sure?' },
-	              :class => 'btn btn-danger' %>
+	<%#= link_to 'Add new expense', new_trip_expense_path(@trip), :class => 'btn btn-primary' %>
+ 
+	<div class = 'buttons'>
+
+		<div class = "col-lg-12">
+		</br>
+		</br>
+		</br>
+		</br>
+			<%= link_to 'Edit', edit_trip_path(@trip), :class => 'btn btn-primary'%>
+			<%= link_to 'All trips', trips_path, :class => 'btn btn-info' %>
+			<%= link_to 'Delete this trip', trip_path(@trip),
+			              method: :delete,
+			              data: { confirm: 'Are you sure?' },
+			              :class => 'btn btn-danger' %>
+		</br>
+		</br>
+		</br>
+		</br>
+		</div>
+	</div>
 	
 </div>

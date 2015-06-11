@@ -2,7 +2,7 @@
 <%=simple_form_for [@trip, @expense] do |f|%>
 	<%= f.input :date, label: 'Date:'%>
 	</br>
-	<%= f.collection_select :attendee_id, @trip.attendees.order(:name),:id,:name, include_blank: true %>
+	<label>Payer:</label><%= f.collection_select :attendee_id, @trip.attendees.order(:name),:id,:name, include_blank: false %>
 	</br>
 	</br>
 	<%= f.input :description, label: 'Expense detail:'%>

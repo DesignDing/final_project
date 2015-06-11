@@ -6,11 +6,12 @@
  			data: {confirm:  "Are you sure?"} %>
 
 
- <p>
+ <p>	
+ 			
  		<strong><%= attendee.name %></strong>
  		<%= link_to "remove attendee", trip_attendee_path(@trip, attendee), 
  			method: :delete, 
- 			data: {confirm:  "Are you sure?"},
+ 			#data: {confirm:  "Are you sure?"},
  			:class => 'btn btn-danger btn-xs' %>
 
  </p>

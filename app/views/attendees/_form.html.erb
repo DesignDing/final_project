@@ -1,6 +1,7 @@
 <p>Add new attendee:</p>
 <%=simple_form_for [@trip, @attendee] do |f|%>
 	<%= f.input :name, label: false, placeholder: 'Name', autofocus:true %>
+	</br>
 	<%= f.submit %> 
 <% end %>
 
