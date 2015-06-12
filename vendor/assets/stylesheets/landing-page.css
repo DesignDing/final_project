@@ -19,8 +19,9 @@ h5,
 h6 {
     /*font-family: 'Yeseva One', cursive;*/
     /*font-family: 'Unica One', cursive;*/
-    font-family: 'Mallanna', sans-serif;
-    font-weight: 700;
+/*    font-family: 'Mallanna', sans-serif;
+    font-weight: 700;*/
+    font-family: 'Droid Serif', serif;
 }
 
 .navbar {
