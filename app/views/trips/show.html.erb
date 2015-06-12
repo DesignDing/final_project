@@ -5,9 +5,16 @@
 .progress{
 	color: black;
 }
+
+body {
+	background: linear-gradient(0deg, #d0eaee, #ffffff);
+	background-size: 100%;
+}
+
 </style>
 
 <div class = trip-show>
+<body>
 	<h1><strong><%= @trip.name %></strong></h1>
 	  
 	<p> Number of Attendees: <%= @trip.number %></p>
@@ -20,9 +27,7 @@
 	<p><%= render 'attendees/form' %></p>
 	<%end%>
 
-<!-- 	<div class= "progress" >
-	  <div class="progress-bar progress-bar-default" style="width: 100%"></div>
-	</div> -->
+
 	<h1>__________________________________________________________________</h1>
 
 	<%= render 'expenses/list' %>
@@ -47,5 +52,6 @@
 		</br>
 		</div>
 	</div>
+	</body>
 	
 </div>

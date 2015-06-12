@@ -10,6 +10,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <%= link_to 'Home', root_path, :class => "navbar-brand topnav" %>
+                <% if user_signed_in? %>
+                <%= link_to 'My Trips', user_trips_path(current_user), :class => "navbar-brand topnav" %>
+                <% end %>
                 <%#= link_to 'What is Treasure?', root_path, :class => "navbar-brand topnav" %>
                 <%#= link_to 'About Us?', root_path, :class => "navbar-brand topnav" %>
                 <%#= link_to 'Contact Us?', root_path, :class => "navbar-brand topnav" %>
@@ -19,15 +22,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#about">What is Treasure?</a>
+                        <%= link_to 'What is Treasure?', welcome_path(:anchor => "about") %>
                           <!-- used to be #about -->
                     </li>
                     <li>
-                        <a href="#services">About Us</a>
+                        <a href="/#services">About Us</a>
                         <!-- used to be #services" -->
                     </li>
                     <li>
-                        <a href="#contact">Contact Us</a>
+                        <a href="/#contact">Contact Us</a>
                         <!-- used to be #contact -->
                     </li>
                     <% if user_signed_in? %>
