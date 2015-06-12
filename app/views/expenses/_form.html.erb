@@ -1,14 +1,14 @@
-<div class = expense-form>
-<%=simple_form_for [@trip, @expense] do |f|%>
-	<%= f.input :date, label: 'Date:'%>
-	</br>
-	<label>Payer:</label><%= f.collection_select :attendee_id, @trip.attendees.order(:name),:id,:name, include_blank: false %>
-	</br>
-	</br>
-	<label>Expense detail:</label><%= f.input :description, label: false %>
-	</br>
-	<%= f.input :amount, label: 'Amount paid:'%>
-	<%= f.submit %> 
-<% end %>
+<div class = "form-inputs">
+	<%=simple_form_for [@trip, @expense] do |f|%>
+		<%= f.input :date, label: 'Date:'%>
+		</br>
+		<label>Payer:</label><%= f.collection_select :attendee_id, @trip.attendees.order(:name),:id,:name, include_blank: false %>
+		</br>
+		</br>
+		<label>Expense detail:</label><%= f.input :description, label: false %>
+		</br>
+		<%= f.input :amount, label: 'Amount paid:'%>
+		<%= f.submit %>
+		</br></br></br></br>
+	<% end %>
 </div>
-

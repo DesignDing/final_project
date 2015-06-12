@@ -1,0 +1,29 @@
+// Place all the styles related to the expenses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.expense-form{
+  /*text-align: left;
+  margin: auto auto;
+  padding: 20% 20% 20% 20%;*/
+  	padding: 20px;
+	border-radius: 20px;
+	margin: 7% 20% auto 20%;
+	background-color: rgba(255,255,255,0.7);
+
+}
+
+.expense-index{
+  text-align: center;
+  margin: 3% 3% 3% 3%;
+}
+
+.table-and-summary{
+  margin-top: 3%;
+}
+.summary{
+  text-align: left;
+}
+.total{
+  margin-left: 15%
+}

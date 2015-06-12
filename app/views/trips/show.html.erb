@@ -1,20 +1,28 @@
-<style>
-.buttons{
-	margin-left: 70% ;
-}
-.progress{
-	color: black;
-}
-
-body {
-	background: linear-gradient(0deg, #d0eaee, #ffffff);
-	background-size: 100%;
-}
-
+<style type="text/css">
+	.trip-form {
+		text-align: center;
+	}
+	.trip-index {
+		text-align: center;	
+	}
+	.trip-show {
+		margin: 3% 3% 3% 3%;
+		text-align: center;
+		padding: 2%;
+		min-height: 100%;
+ 	}
+ 	body {
+ 		background: -webkit-linear-gradient(#d0eaee, #FFF); /* For Safari 5.1 to 6.0 */
+ 		 background: -o-linear-gradient(#d0eaee, #FFF); /* For Opera 11.1 to 12.0 */
+ 		 background: -moz-linear-gradient(#d0eaee, #FFF); /* For Firefox 3.6 to 15 */
+ 		 background: linear-gradient(#d0eaee, #FFF); /* Standard syntax */
+ 		 background-repeat: no-repeat;
+ 	}
+	.buttons{
+		margin-left: 70% ;
+	}
 </style>
-
-<div class = trip-show>
-<body>
+<div class="trip-show">
 	<h1><strong><%= @trip.name %></strong></h1>
 	  
 	<p> Number of Attendees: <%= @trip.number %></p>
@@ -44,7 +52,7 @@ body {
 			<%= link_to 'All trips', trips_path, :class => 'btn btn-info' %>
 			<%= link_to 'Delete this trip', trip_path(@trip),
 			              method: :delete,
-			              data: { confirm: 'Are you sure?' },
+			              data: { confirm: "Are you sure?" },
 			              :class => 'btn btn-danger' %>
 		</br>
 		</br>
@@ -52,6 +60,4 @@ body {
 		</br>
 		</div>
 	</div>
-	</body>
-	
 </div>
