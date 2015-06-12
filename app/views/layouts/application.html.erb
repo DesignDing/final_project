@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Finalproject</title>
+  <title>Treasure</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= render 'layouts/nav' %>
 <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
+  <p class="alert alert-success an-zindex"><%= notice %></p>
 <% end %>
 <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
+  <p class="alert alert-danger an-zindex"><%= alert %></p>
 <% end %>
-
-<%= render 'layouts/nav'%>
 
 <%= yield %>
 

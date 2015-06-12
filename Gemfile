@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails_12factor', group: :production
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
+gem 'font-awesome-rails'
+
 gem 'devise'
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
